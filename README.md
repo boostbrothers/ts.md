@@ -17,8 +17,9 @@
 ### Example `sgencofing.json`
 ```json
 {
-  "path": './src',
-  "extensions": '',
+  "path": "./src",
+  "include": ["**/*.interface.ts"],
+  "out": "./docs/schemata.md"
 }
 ```
 
