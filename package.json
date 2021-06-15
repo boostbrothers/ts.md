@@ -1,6 +1,6 @@
 {
   "name": "@boostbrothers/schemata-documentation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "yoonhoGo <yoonho.go@bbros.kr>",
   "main": "build/index.js",
