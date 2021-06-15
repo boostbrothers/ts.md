@@ -8,7 +8,9 @@ const templateFile = ts.sys.readFile(filepath);
 const template = Handlebars.compile(templateFile);
 
 export default (node: ts.SourceFile): any => {
-  const syntaxList = node.getChildren().map(parseNode);
+  const [child] = node.getChildren();
+
+  const syntaxList = parseNode(child);
 
   return template({ syntaxList });
 };

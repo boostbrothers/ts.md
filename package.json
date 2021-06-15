@@ -1,6 +1,6 @@
 {
-  "name": "schemata-generator",
-  "version": "0.0.0",
+  "name": "@boostbrothers/schemata-documentation",
+  "version": "0.0.1",
   "description": "",
   "author": "yoonhoGo <yoonho.go@bbros.kr>",
   "main": "build/index.js",
@@ -11,11 +11,17 @@
   "bin": {
     "sg": "./build/index.js"
   },
-  "license": "Apache-2.0",
+  "license": "ISC",
   "keywords": [],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boostbrothers/schemata.git"
+  },
   "scripts": {
     "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
