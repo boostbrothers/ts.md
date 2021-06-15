@@ -4,6 +4,33 @@
 
 이후 Public Package로 배포할 계획을 가지고 있습니다.
 
+## Install
+
+```sh
+$npm i -g @boostbrothers/schemata-documentation # global
+or
+$npm i -D @boostbrothers/schemata-documentation # local
+```
+
+## Usage
+
+### Global installed
+
+```sh
+$sg [configfile path]
+or
+$sg ./sgenconfig.json
+```
+
+### Local installed
+
+```sh
+$npx sg [configfile path]
+or
+$npx sg ./sgenconfig.json
+```
+
+
 ## Config
 
 실행 경로에 `sgenconfig.json`을 만들어주세요.
@@ -31,11 +58,3 @@ exclude | string[] \| undefined | | undefined | 문서화 제외 목록
 include | string[] \| undefined | | undefined | 문서화 포함 목록<br />(ex. `["**/*.interface.ts"]`)
 depth | number \| undefined | | undefined | 디렉토리 구조 탐색 깊이 제한
 out | string \| undefined | | `./docs/schemata.md` | 문서를 내보낼 파일 위치
-
-## Usage
-
-```sh
-$sg [configfile path]
-or
-$sg ./sgenconfig.json
-```
