@@ -2,9 +2,11 @@ import * as _ from 'lodash/fp';
 import * as ts from 'typescript';
 import * as Handlebars from 'handlebars';
 import * as path from 'path';
+import {replace, join} from 'lodash';
 import {getMetadata} from '../utils';
 import parseJsdoc from './parse-jsdoc';
 import parseType from './parse-type';
+import toRegexpHelper from '../utils/to-regexp.helper';
 
 const filepath = path.resolve(__dirname, '../..', 'templates/type-element.hbs');
 const templateFile = ts.sys.readFile(filepath);
@@ -26,6 +28,6 @@ export default (node: ts.TypeElement): any => {
       defaultValues,
       comments,
     },
-    {helpers: {defaultsHelper}}
+    {helpers: {defaultsHelper, join, replace, toRegexp: toRegexpHelper}}
   );
 };

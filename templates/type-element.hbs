@@ -1,1 +1,1 @@
-{{{name}}} | {{{type}}} | {{{isRequired}}} | {{defaultsHelper defaultValues}} | {{#each comments}}{{{comments}}}{{/each}}
+{{{name}}} | {{{type}}} | {{{isRequired}}} | {{defaultsHelper defaultValues}} | {{{replace comments (toRegexp "\n" "g") "<br />"}}}
