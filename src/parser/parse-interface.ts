@@ -1,7 +1,6 @@
 import * as ts from 'typescript';
 import * as Handlebars from 'handlebars';
 import * as path from 'path';
-import {join} from 'lodash';
 import {getMetadata} from '../utils';
 import parseJsdoc from './parse-jsdoc';
 import parseNode from './parse-node';
