@@ -15,12 +15,5 @@ export default (node: ts.InterfaceDeclaration): any => {
   const {comments} = parseJsdoc(jsdoc);
   const properties = node.members.map(parseNode);
 
-  return template(
-    {name, comments, properties},
-    {
-      helpers: {
-        join,
-      },
-    }
-  );
+  return template({name, comments, properties});
 };
