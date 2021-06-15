@@ -1,0 +1,15 @@
+## {{name}}
+{{#each (join comments)}}
+
+{{{this}}}<br />
+{{/each}}
+
+### Properties
+
+{{#if properties}}
+이름 | 타입 | 필수 | 기본값 | 설명
+---|---|---|---|---
+{{#each properties}}
+{{{this}}}
+{{/each}}
+{{/if}}
