@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/boostbrothers/schemata.git"
+    "url": "https://github.com/boostbrothers/schemata-documentation.git"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
