@@ -1,0 +1,25 @@
+## {{name}}
+
+- type: `enum`
+
+{{#each jsdoc}}
+{{{this.comment}}}
+{{#each otherTags}}
+{{#if @first}}### Tags{{/if}}
+- `@{{tagName}}`{{#if comment}}: {{comment}}{{/if}}
+{{/each}}
+{{/each}}
+
+{{#if members}}
+### Members
+
+이름 | 값 | 설명
+--- | --- | ---
+{{#each members}}
+  {{~#if this.value}}
+    {{~>enum-member this}}
+  {{else}}
+    {{~>enum-member this value=@index}}
+  {{~/if}}
+{{/each}}
+{{/if}}

@@ -1,16 +1,10 @@
 import * as ts from 'typescript';
-import * as Handlebars from 'handlebars';
-import * as path from 'path';
 import parseNode from './parse-node';
 
-const filepath = path.resolve(__dirname, '../..', 'templates/source-file.hbs');
-const templateFile = ts.sys.readFile(filepath);
-const template = Handlebars.compile(templateFile);
+export default (node: ts.SourceFile) => {
+  const [statement] = node.getChildren();
 
-export default (node: ts.SourceFile): any => {
-  const [child] = node.getChildren();
+  const syntaxList = parseNode(statement);
 
-  const syntaxList = parseNode(child);
-
-  return template({ syntaxList });
+  return {kind: node.kind, syntaxList};
 };

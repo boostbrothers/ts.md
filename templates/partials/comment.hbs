@@ -1,0 +1,8 @@
+{{#each this~}}
+{{{replace comment (toRegexp "\n" "g") "<br />"}}}
+{{~#each otherTags ~}}
+  {{~#if @first}}<br />{{/if~}}
+`@{{tagName}}{{#if comment}}: {{{comment}}}{{/if}}`
+  {{~#unless @last}}<br />{{/unless~}}
+{{~/each~}}
+{{~/each}}

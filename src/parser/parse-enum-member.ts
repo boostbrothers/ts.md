@@ -4,9 +4,9 @@ import {getMetadata} from '../utils';
 import parseJsdoc from './parse-jsdoc';
 
 export default (node: ts.EnumMember) => {
-  const {name, jsdoc} = getMetadata(node);
-  const {comments} = parseJsdoc(jsdoc);
+  const {name, jsdocs} = getMetadata(node);
+  const jsdoc = jsdocs.map(parseJsdoc);
   const value = _.get(node.initializer, ['text']);
 
-  return {name, value, comments};
+  return {name, value, jsdoc};
 };

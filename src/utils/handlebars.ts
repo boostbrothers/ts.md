@@ -1,24 +1,47 @@
-// import * as Handlebars from 'handlebars';
-// import * as path from 'path';
-// import ts = require('typescript');
+import * as _ from 'lodash';
+import * as hbs from 'handlebars';
+import * as path from 'path';
+import ts = require('typescript');
+import toRegexpHelper from './to-regexp.helper';
 
-// const hbsFiles = ts.sys.readDirectory('./templates', undefined, undefined, ['*.hbs']);
-// const partials = hbsFiles.map((hbsFile) => {
-//   const {name} = path.parse(hbsFile);
-//   const file = ts.sys.readFile(hbsFile);
+const hbsPartials = ts.sys.readDirectory(
+  path.resolve(__dirname, '../..', './templates/partials'),
+  undefined,
+  undefined,
+  ['*.hbs']
+);
+hbsPartials.map(partial => {
+  const {name} = path.parse(partial);
+  const file = ts.sys.readFile(partial);
 
-//   const template = Handlebars.compile(file);
-//   Handlebars.registerPartial(name, templates);
-// })
+  const template = hbs.compile(file);
+  hbs.registerPartial(name, template);
+});
 
-// export default (path: string, data: any) => {
-//   const templateFile = ts.sys.readFile(path);
+const sourceFilePath = path.resolve(__dirname, '../..', './templates/source-file.hbs');
+const templateFile = ts.sys.readFile(sourceFilePath);
+if (!templateFile) {
+  throw new Error(sourceFilePath + ' 파일을 찾을 수 없습니다.');
+}
+const template = hbs.compile(templateFile);
 
-//   if (!templateFile) {
-//     throw new Error(path + ' 파일을 찾을 수 없습니다.');
-//   }
+const lodashHelpers = _.pick(_, ['isEqual', 'replace', 'includes']);
 
-//   const template = Handlebars.compile(templateFile);
-
-//   return template(data);
-// };
+export default (context: unknown) => template(context, {helpers: {
+  ...hbs.helpers,
+  ...lodashHelpers,
+  join: (separator: string, ...str: string[]) => str.slice(0, -1).join(separator),
+  toRegexp: toRegexpHelper,
+  list: (...args: unknown[]) => args,
+  empty: (type: string) => {
+    switch (type) {
+      case 'string':
+      case 'String': return '';
+      case 'array':
+      case 'Array': return [];
+      case 'object':
+      case 'Object': return {};
+      default: return;
+    }
+  }
+}});

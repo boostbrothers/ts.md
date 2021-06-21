@@ -1,0 +1,16 @@
+{{#if path}}{{path}}.{{/if}}{{name ~}}
+| {{#unless (isEqual this.type.kind 178) ~}}
+    {{~>type this.type}}
+  {{~else~}}
+    Object
+  {{~/unless~}}
+| {{#unless questionToken}} ✅ {{/unless ~}}
+| {{default ~}}
+| {{>comment jsdoc delimiter="<br />"}}
+{{#if (isEqual this.type.kind 178)}}
+  {{~#if path~}}
+    {{~>type this.type path=(join "." path name)~}}
+  {{~else~}}
+    {{~>type this.type path=name}}
+  {{~/if}}
+{{/if}}

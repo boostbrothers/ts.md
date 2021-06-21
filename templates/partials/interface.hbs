@@ -1,0 +1,31 @@
+## {{name}}
+
+- type: `interface`
+
+{{#each jsdoc}}
+{{{this.comment}}}
+{{#each otherTags}}
+{{#if @first}}### Tags{{/if}}
+- `@{{tagName}}`{{#if comment}}: {{comment}}{{/if}}
+{{/each}}
+{{/each}}
+
+{{#if typeParameters}}
+### Generics
+
+이름 | extends of | default
+--- | --- | ---
+{{#each typeParameters}}
+  {{~>type-parameter this}}
+{{/each}}
+{{/if}}
+
+{{#if properties}}
+### Properties
+
+이름 | 타입 | 필수 | 기본값 | 설명
+---|---|:---:|---|---
+{{#each properties}}
+  {{~>property-signature this}}
+{{/each}}
+{{/if}}

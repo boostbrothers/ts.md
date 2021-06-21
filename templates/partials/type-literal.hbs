@@ -1,0 +1,26 @@
+## {{name}}
+
+- type: `type`
+
+{{#each jsdoc}}
+{{{this.comment}}}
+{{#each otherTags}}
+{{#if @first}}### Tags{{/if}}
+- `@{{tagName}}`{{#if comment}}: {{comment}}{{/if}}
+{{/each}}
+{{/each}}
+
+{{#if properties}}
+{{#if (isEqual properties.kind 178)}}
+### Properties
+
+이름 | 타입 | 필수 | 기본값 | 설명
+---|---|:---:|---|--
+{{>type properties}}
+{{else}}
+```typescript
+{{>type-in-codefence properties}}
+
+```
+{{/if}}
+{{/if}}

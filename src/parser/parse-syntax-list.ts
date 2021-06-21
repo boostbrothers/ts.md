@@ -1,4 +1,3 @@
-import {parse} from 'path';
 import * as ts from 'typescript';
 import parseNode from './parse-node';
 

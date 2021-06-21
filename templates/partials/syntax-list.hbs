@@ -1,0 +1,10 @@
+{{#each syntaxList ~}}
+  {{~#if (isEqual this.kind 254)}}
+    {{~>interface this fileName=../fileName}}
+  {{else if (isEqual this.kind 255)}}
+    {{~>type-literal this fileName=../fileName}}
+  {{else if (isEqual this.kind 256)}}
+    {{~>enum this fileName=../fileName}}
+  {{~/if}}
+
+{{/each}}

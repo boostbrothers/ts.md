@@ -1,16 +1,12 @@
 import * as _ from 'lodash/fp';
 import * as ts from 'typescript';
-import {getJSDocDefaultTag} from '../utils';
+import {getJSDocDefaultTag, getJSDocOtherTags} from '../utils';
 
-export default (jsDoc: ts.JSDoc[]) => {
-  const comments = _.map('comment', jsDoc);
-  const defaultValues = _.flow([
-    _.flatten,
-    _.map(getJSDocDefaultTag),
-  ])(jsDoc);
-
+export default (node: ts.JSDoc) => {
   return {
-    comments,
-    defaultValues,
+    kind: node.kind,
+    comment: node.comment,
+    defaultTags: getJSDocDefaultTag(node),
+    otherTags: getJSDocOtherTags(node),
   };
 };

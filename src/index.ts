@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import * as _ from 'lodash';
 import * as ts from 'typescript';
-import parseSchema from './parser/parse-schema';
+import readSourceFile from './read-source-file';
+import handlebars from './utils/handlebars';
 
 const args = {
-  configfile: ts.sys.args[0] || './sgenconfig.json',
+  configfile: ts.sys.args[1] || './sgenconfig.json',
 };
 const config = ts.sys.readFile(args.configfile);
 const {
@@ -21,8 +21,8 @@ const schemataFiles = ts.sys.readDirectory(
   extensions,
   exclude,
   include,
-  depth,
+  depth
 );
 
-const schemata = parseSchema(schemataFiles);
-ts.sys.writeFile(out, schemata);
+const schemata = schemataFiles.map(readSourceFile).map(handlebars);
+ts.sys.writeFile(out, schemata.join('\n\n'));
