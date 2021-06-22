@@ -4,7 +4,7 @@
   {{~typeName~}}
   {{~#if typeArguments~}}<
     {{~#each typeArguments~}}
-      {{~>type this~}}{{#unless @last}}, {{/unless}}
+      {{~>type-in-codefence this~}}{{#unless @last}}, {{/unless}}
     {{~/each}}>
   {{~/if}}
 {{~else if (isEqual kind 178)}}{{! TypeLiteral~}}
@@ -13,9 +13,13 @@
   {{~/each}}
 {{~else if (isEqual kind 179)}}{{! ArrayType ~}}
   Array<{{elementType.typeName}}>
+{{~else if (isEqual kind 180)}}{{! TupleType ~}}
+  [{{#each elements~}}
+    {{~>type-in-codefence this}}{{#unless @last}}, {{/unless}}
+  {{~/each}}]
 {{~else if (isEqual kind 183)}}{{! UnionType ~}}
   {{~#each types~}}
-    {{>type this}}{{#unless @last}} | {{/unless}}
+    {{>type-in-codefence this}}{{#unless @last}} | {{/unless}}
   {{~/each}}
 {{~else if (isEqual kind 192)}}{{! LiteralType ~}}
   {{~literal}}

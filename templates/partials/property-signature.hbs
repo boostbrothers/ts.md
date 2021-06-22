@@ -1,4 +1,6 @@
+{{#if isDeprecated}}~~{{/if~}}
 {{#if path}}{{path}}.{{/if}}{{name ~}}
+{{#if isDeprecated}}~~{{/if~}}
 | {{#unless (isEqual this.type.kind 178) ~}}
     {{~>type this.type}}
   {{~else~}}

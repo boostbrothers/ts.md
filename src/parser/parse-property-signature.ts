@@ -1,5 +1,5 @@
 import ts = require('typescript');
-import { getMetadata } from '../utils';
+import {getMetadata, hasJSDocDeprecatedTag} from '../utils';
 import parseJsdoc from './parse-jsdoc';
 import parseNode from './parse-node';
 
@@ -8,6 +8,7 @@ export default (node: ts.PropertySignature) => {
   const jsdoc = jsdocs.map(parseJsdoc);
   const questionToken = node.questionToken;
   const type = parseNode(node.type);
+  const isDeprecated = jsdocs.some(hasJSDocDeprecatedTag);
 
   return {
     kind: node.kind,
@@ -15,5 +16,6 @@ export default (node: ts.PropertySignature) => {
     type,
     jsdoc,
     questionToken,
+    isDeprecated,
   };
 };

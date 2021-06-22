@@ -3,11 +3,15 @@
 - type: `enum`
 
 {{#each jsdoc}}
-{{{this.comment}}}
-{{#each otherTags}}
-{{#if @first}}### Tags{{/if}}
+{{{comment}}}
+
+  {{#each otherTags~}}
+    {{#if @first}}
+### Tags
+
+    {{/if}}
 - `@{{tagName}}`{{#if comment}}: {{comment}}{{/if}}
-{{/each}}
+  {{/each}}
 {{/each}}
 
 {{#if members}}

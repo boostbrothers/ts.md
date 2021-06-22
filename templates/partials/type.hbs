@@ -12,7 +12,11 @@
     {{~>property-signature this path=../path}}
   {{~/each}}
 {{~else if (isEqual kind 179)}}{{! ArrayType ~}}
-  Array\<{{elementType.typeName}}\>
+  Array\<{{>type elementType}}\>
+{{~else if (isEqual kind 180)}}{{! TupleType ~}}
+  \[{{#each elements~}}
+    {{~>type this}}{{#unless @last}}, {{/unless}}
+  {{~/each}}\]
 {{~else if (isEqual kind 183)}}{{! UnionType ~}}
   {{~#each types~}}
     {{>type this}}{{#unless @last}} \| {{/unless}}

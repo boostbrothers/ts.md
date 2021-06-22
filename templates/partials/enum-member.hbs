@@ -1,1 +1,4 @@
-{{{this.name}}} | {{{this.value}}} | {{>comment this.jsdoc}}
+{{#if isDeprecated}}~~{{/if~}}
+{{this.name~}}
+{{#if isDeprecated}}~~{{/if~}}
+ | {{{this.value}}} | {{>comment this.jsdoc}}

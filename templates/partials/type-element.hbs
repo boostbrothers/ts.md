@@ -1,1 +1,4 @@
-{{{name}}} | {{{type}}} | {{{isRequired}}} | {{defaultsHelper defaultValues}} | {{>comment jsdoc}}
+{{#if isDeprecated}}~~{{/if~}}
+{{name~}}
+{{#if isDeprecated}}~~{{/if~}}
+ | {{{type}}} | {{{isRequired}}} | {{defaultsHelper defaultValues}} | {{>comment jsdoc}}
