@@ -1,5 +1,7 @@
 {
+  "path": "example",
   "include": [
-    "interface.ts"
-  ]
+    "*.interface.ts"
+  ],
+  "out": "example/test.md"
 }
