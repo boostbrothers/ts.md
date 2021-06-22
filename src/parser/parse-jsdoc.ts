@@ -1,6 +1,6 @@
 import * as _ from 'lodash/fp';
 import * as ts from 'typescript';
-import {getJSDocDefaultTag, getJSDocDeprecatedTag, getJSDocOtherTags} from '../utils';
+import {getJSDocDefaultTag, getJSDocOtherTags} from '../utils';
 
 export default (node: ts.JSDoc) => {
   const defaultTags = getJSDocDefaultTag(node);

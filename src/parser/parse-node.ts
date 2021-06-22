@@ -13,6 +13,7 @@ import parseTypeLiteralNode from './parse-type-literal-node';
 import parseTypeParameter from './parse-type-parameter';
 import parseTypeReferenceNode from './parse-type-reference-node';
 import parseUnionType from './parse-union-type';
+import parseIntersectionType from './parse-intersection-type';
 
 export default (node?: ts.Node) => {
   if (!node) {
@@ -65,6 +66,10 @@ export default (node?: ts.Node) => {
 
   if (ts.isTypeParameterDeclaration(node)) {
     return parseTypeParameter(node);
+  }
+
+  if (ts.isIntersectionTypeNode(node)) {
+    return parseIntersectionType(node);
   }
 
   if (node.kind === ts.SyntaxKind.SyntaxList) {

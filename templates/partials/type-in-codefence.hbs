@@ -21,6 +21,10 @@
   {{~#each types~}}
     {{>type-in-codefence this}}{{#unless @last}} | {{/unless}}
   {{~/each}}
+{{~else if (isEqual kind 184)}}{{! IntersectionType ~}}
+  {{~#each types~}}
+    {{>type-in-codefence this}}{{#unless @last}} & {{/unless}}
+  {{~/each}}
 {{~else if (isEqual kind 192)}}{{! LiteralType ~}}
   {{~literal}}
 {{~else if (includes (list "String" "Boolean" "Number" "Null" "Unknown" "Any") this)}}
