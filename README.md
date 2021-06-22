@@ -52,12 +52,17 @@ $npx sg ./sgenconfig.json
 
 name | type | is required | default | description
 --- | :---: | :---: | --- | ---
-path | string | v | | 문서화를 진행할 typescript source 상대 경로
+path | string | | `./` | 문서화를 진행할 typescript source 상대 경로
 extensions | string[] \| undefined | | undefined | 확장자 목록
 exclude | string[] \| undefined | | undefined | 문서화 제외 목록
 include | string[] \| undefined | | undefined | 문서화 포함 목록<br />(ex. `["**/*.interface.ts"]`)
 depth | number \| undefined | | undefined | 디렉토리 구조 탐색 깊이 제한
 out | string \| undefined | | `./docs/schemata.md` | 문서를 내보낼 파일 위치
+
+## TODO
+
+- [ ] Index(TOC)
+- [ ] File 별로 출력
 
 ## Features
 
