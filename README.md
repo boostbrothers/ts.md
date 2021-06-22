@@ -58,3 +58,43 @@ exclude | string[] \| undefined | | undefined | 문서화 제외 목록
 include | string[] \| undefined | | undefined | 문서화 포함 목록<br />(ex. `["**/*.interface.ts"]`)
 depth | number \| undefined | | undefined | 디렉토리 구조 탐색 깊이 제한
 out | string \| undefined | | `./docs/schemata.md` | 문서를 내보낼 파일 위치
+
+## Features
+
+### Type Nodes
+
+- [x] Type Reference(kind: 174)
+- [x] Array Type Node(kind: 179)
+- [x] Tuple Type Node(kind: 180)
+- [x] Union Type Node(kind: 183)
+- [x] Intersection Type Node(kind: 184)
+- [x] Literal Type Node(kind: 192)
+
+### Tokens
+
+- [x] First Literal
+- [x] Numeric Literal
+- [x] String Literal
+- [x] String Keyword
+- [x] Number Keyword
+- [x] Boolean Keyword
+- [x] Null Keyword
+- [x] Unknown Keyword
+- [x] Any Keyword
+
+### Declaration
+
+- [x] Identifier(kind: 78)
+  - `escapedText: string`
+- [x] Type Element
+  - `name?: PropertyName`
+  - `questionToken?: QuestionToken`
+- [x] Property Signature(kind: 163)
+  - `name: PropertyName`
+  - `questionToken?: QuestionToken`
+  - `type?: TypeNode`
+- [x] Enum Member Declaration(kind: 292)
+- [x] Enum Declaration(kind: 256)
+- [x] Type Literal(kind: 178)
+  - `members: TypeElement[]`
+- [x] Type Parameter Declaration(kind: 160)
