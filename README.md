@@ -7,9 +7,9 @@
 ## Install
 
 ```sh
-$npm i -g ts.md # global
+$npm i -g @boostbrothers/ts.md # global
 or
-$npm i -D ts.md # local
+$npm i -D @boostbrothers/ts.md # local
 ```
 
 ## Usage
