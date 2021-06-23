@@ -1,7 +1,7 @@
 {
-  "name": "@boostbrothers/schemata-documentation",
+  "name": "@boostbrothers/ts.md",
   "version": "0.2.0",
-  "description": "",
+  "description": "Typescript interface documentation tool",
   "author": "yoonhoGo <yoonho.go@bbros.kr>",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -10,16 +10,20 @@
     "templates"
   ],
   "bin": {
-    "sg": "./build/index.js"
+    "tsmd": "./build/index.js"
   },
   "license": "ISC",
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "markdown",
+    "documentation"
+  ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/boostbrothers/schemata-documentation.git"
+    "url": "https://github.com/boostbrothers/ts.md.git"
   },
   "scripts": {
     "start": "ts-node src/index.ts",

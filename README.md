@@ -1,4 +1,4 @@
-# schemata-documentation
+# ts.md
 
 이 라이브러리는 Typescript에서 interface와 enum 등의 타입을 자동으로 문서화 시켜주는 라이브러리입니다.
 
@@ -7,9 +7,9 @@
 ## Install
 
 ```sh
-$npm i -g @boostbrothers/schemata-documentation # global
+$npm i -g ts.md # global
 or
-$npm i -D @boostbrothers/schemata-documentation # local
+$npm i -D ts.md # local
 ```
 
 ## Usage
@@ -17,17 +17,17 @@ $npm i -D @boostbrothers/schemata-documentation # local
 ### Global installed
 
 ```sh
-$sg [configfile path]
+$tsmd [configfile path]
 or
-$sg ./sgenconfig.json
+$tsmd ./sgenconfig.json
 ```
 
 ### Local installed
 
 ```sh
-$npx sg [configfile path]
+$npx tsmd [configfile path]
 or
-$npx sg ./sgenconfig.json
+$npx tsmd ./sgenconfig.json
 ```
 
 
