@@ -19,7 +19,7 @@ $npm i -D @boostbrothers/ts.md # local
 ```sh
 $tsmd [configfile path]
 or
-$tsmd ./sgenconfig.json
+$tsmd ./.tsmdrc.json
 ```
 
 ### Local installed
@@ -27,21 +27,21 @@ $tsmd ./sgenconfig.json
 ```sh
 $npx tsmd [configfile path]
 or
-$npx tsmd ./sgenconfig.json
+$npx tsmd ./.tsmdrc.json
 ```
 
 
 ## Config
 
-실행 경로에 `sgenconfig.json`을 만들어주세요.
+실행 경로에 `.tsmdrc.json`을 만들어주세요.
 
 ```sh
-./sgenconfig.json # 기본 경로
+./.tsmdrc.json # 기본 경로
 ```
 
 설정 파일에 필요 정보를 입력해주세요.
 
-### Example `sgencofing.json`
+### Example `.tsmdrc.json`
 ```json
 {
   "path": "./src",

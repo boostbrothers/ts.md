@@ -4,7 +4,7 @@ import readSourceFile from './read-source-file';
 import handlebars from './utils/handlebars';
 
 const args = {
-  configfile: ts.sys.args[1] || './sgenconfig.json',
+  configfile: ts.sys.args[1] || './.tsmdrc.json',
 };
 const config = ts.sys.readFile(args.configfile);
 const {
