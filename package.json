@@ -1,6 +1,6 @@
 {
   "name": "@boostbrothers/ts.md",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Typescript interface documentation tool",
   "author": "yoonhoGo <yoonho.go@bbros.kr>",
   "main": "build/index.js",
