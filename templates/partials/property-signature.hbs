@@ -1,7 +1,7 @@
 {{#if isDeprecated}}~~{{/if~}}
 {{#if path}}{{path}}.{{/if}}{{name ~}}
 {{#if isDeprecated}}~~{{/if~}}
-| {{#unless (isEqual this.type.kind 178) ~}}
+| {{#unless (isKind this.type.kind 'TypeLiteral') ~}}
     {{~>type this.type}}
   {{~else~}}
     Object
@@ -9,7 +9,7 @@
 | {{#unless questionToken}} ✅ {{/unless ~}}
 | {{default ~}}
 | {{>comment jsdoc delimiter="<br />"}}
-{{#if (isEqual this.type.kind 178)}}
+{{#if (isKind this.type.kind 'TypeLiteral')}}
   {{~#if path~}}
     {{~>type this.type path=(join "." path name)~}}
   {{~else~}}

@@ -1,9 +1,9 @@
 {{#each syntaxList ~}}
-  {{~#if (isEqual this.kind 254)}}
+  {{~#if (isKind this.kind 'InterfaceDeclaration')}}
     {{~>interface this fileName=../fileName}}
-  {{else if (isEqual this.kind 255)}}
+  {{else if (isKind this.kind 'TypeAliasDeclaration')}}
     {{~>type-literal this fileName=../fileName}}
-  {{else if (isEqual this.kind 256)}}
+  {{else if (isKind this.kind 'EnumDeclaration')}}
     {{~>enum this fileName=../fileName}}
   {{~/if}}
 

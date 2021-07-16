@@ -30,6 +30,9 @@ const lodashHelpers = _.pick(_, ['isEqual', 'replace', 'includes']);
 export default (context: unknown) => template(context, {helpers: {
   ...hbs.helpers,
   ...lodashHelpers,
+  isKind: (kind: number, kindName: string) => {
+    return ts.SyntaxKind[kindName] === kind;
+  },
   join: (separator: string, ...str: string[]) => str.slice(0, -1).join(separator),
   toRegexp: toRegexpHelper,
   list: (...args: unknown[]) => args,

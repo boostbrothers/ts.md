@@ -1,31 +1,31 @@
-{{#if (isEqual kind 163)}}{{! PropertySignature ~}}
+{{#if (isKind kind "PropertySignature")}}{{! PropertySignature ~}}
   {{~>property-signature this}}
-{{~else if (isEqual kind 174)}}{{! TypeReference ~}}
+{{~else if (isKind kind "TypeReference")}}{{! TypeReference ~}}
   {{~typeName~}}
   {{~#if typeArguments~}}<
     {{~#each typeArguments~}}
       {{~>type-in-codefence this~}}{{#unless @last}}, {{/unless}}
     {{~/each}}>
   {{~/if}}
-{{~else if (isEqual kind 178)}}{{! TypeLiteral~}}
+{{~else if (isKind kind "TypeLiteral")}}{{! TypeLiteral~}}
   {{~#each members}}
     {{~>property-signature this path=../path}}
   {{~/each}}
-{{~else if (isEqual kind 179)}}{{! ArrayType ~}}
+{{~else if (isKind kind "ArrayType")}}{{! ArrayType ~}}
   Array<{{elementType.typeName}}>
-{{~else if (isEqual kind 180)}}{{! TupleType ~}}
+{{~else if (isKind kind "TupleType")}}{{! TupleType ~}}
   [{{#each elements~}}
     {{~>type-in-codefence this}}{{#unless @last}}, {{/unless}}
   {{~/each}}]
-{{~else if (isEqual kind 183)}}{{! UnionType ~}}
+{{~else if (isKind kind "UnionType")}}{{! UnionType ~}}
   {{~#each types~}}
     {{>type-in-codefence this}}{{#unless @last}} | {{/unless}}
   {{~/each}}
-{{~else if (isEqual kind 184)}}{{! IntersectionType ~}}
+{{~else if (isKind kind "IntersectionType")}}{{! IntersectionType ~}}
   {{~#each types~}}
     {{>type-in-codefence this}}{{#unless @last}} & {{/unless}}
   {{~/each}}
-{{~else if (isEqual kind 192)}}{{! LiteralType ~}}
+{{~else if (isKind kind "LiteralType")}}{{! LiteralType ~}}
   {{~literal}}
 {{~else if (includes (list "String" "Boolean" "Number" "Null" "Unknown" "Any") this)}}
   {{~this}}

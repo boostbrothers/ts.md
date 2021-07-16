@@ -14,7 +14,7 @@
   {{/each}}
 {{/each}}
 {{#if properties}}
-{{#if (isEqual properties.kind 178)}}
+{{#if (isKind properties.kind "TypeLiteral")}}
 ### Properties
 
 이름 | 타입 | 필수 | 기본값 | 설명
