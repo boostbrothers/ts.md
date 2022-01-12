@@ -1,5 +1,5 @@
 {
-  "name": "@boostbrothers/ts.md",
+  "name": "@bbros/ts.md",
   "version": "0.2.4",
   "description": "Typescript interface documentation tool",
   "author": "yoonhoGo <yoonho.go@bbros.kr>",
@@ -10,7 +10,7 @@
     "templates"
   ],
   "bin": {
-    "tsmd": "./build/index.js"
+    "tsmd": "build/index.js"
   },
   "license": "ISC",
   "keywords": [
@@ -18,12 +18,9 @@
     "markdown",
     "documentation"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/boostbrothers/ts.md.git"
+    "url": "git+https://github.com/boostbrothers/ts.md.git"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -45,5 +42,9 @@
     "handlebars": "^4.7.7",
     "lodash": "^4.17.21",
     "typescript": "^4.0.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/boostbrothers/ts.md/issues"
+  },
+  "homepage": "https://github.com/boostbrothers/ts.md#readme"
 }
