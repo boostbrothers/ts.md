@@ -24,7 +24,7 @@ export default (node: ts.Token<ts.TokenSyntaxKind>): any => {
       return 'Null';
     }
     case ts.SyntaxKind.UnknownKeyword: {
-      return 'Unknown'
+      return 'Unknown';
     }
     case ts.SyntaxKind.AnyKeyword: {
       return 'Any';

@@ -18,7 +18,11 @@ hbsPartials.map(partial => {
   hbs.registerPartial(name, template);
 });
 
-const sourceFilePath = path.resolve(__dirname, '../..', './templates/source-file.hbs');
+const sourceFilePath = path.resolve(
+  __dirname,
+  '../..',
+  './templates/source-file.hbs'
+);
 const templateFile = ts.sys.readFile(sourceFilePath);
 if (!templateFile) {
   throw new Error(sourceFilePath + ' 파일을 찾을 수 없습니다.');
@@ -27,24 +31,32 @@ const template = hbs.compile(templateFile);
 
 const lodashHelpers = _.pick(_, ['isEqual', 'replace', 'includes']);
 
-export default (context: unknown) => template(context, {helpers: {
-  ...hbs.helpers,
-  ...lodashHelpers,
-  isKind: (kind: number, kindName: string) => {
-    return ts.SyntaxKind[kindName] === kind;
-  },
-  join: (separator: string, ...str: string[]) => str.slice(0, -1).join(separator),
-  toRegexp: toRegexpHelper,
-  list: (...args: unknown[]) => args,
-  empty: (type: string) => {
-    switch (type) {
-      case 'string':
-      case 'String': return '';
-      case 'array':
-      case 'Array': return [];
-      case 'object':
-      case 'Object': return {};
-      default: return;
-    }
-  }
-}});
+export default (context: unknown) =>
+  template(context, {
+    helpers: {
+      ...hbs.helpers,
+      ...lodashHelpers,
+      isKind: (kind: number, kindName: string) => {
+        return ts.SyntaxKind[kindName] === kind;
+      },
+      join: (separator: string, ...str: string[]) =>
+        str.slice(0, -1).join(separator),
+      toRegexp: toRegexpHelper,
+      list: (...args: unknown[]) => args,
+      empty: (type: string) => {
+        switch (type) {
+          case 'string':
+          case 'String':
+            return '';
+          case 'array':
+          case 'Array':
+            return [];
+          case 'object':
+          case 'Object':
+            return {};
+          default:
+            return;
+        }
+      },
+    },
+  });

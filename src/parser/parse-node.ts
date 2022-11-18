@@ -15,7 +15,7 @@ export default (node?: ts.Node) => {
   if (!node) {
     return;
   }
-  
+
   if (ts.isIdentifier(node)) {
     return parseIdentifier(node);
   }

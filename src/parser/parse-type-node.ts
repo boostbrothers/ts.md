@@ -1,9 +1,9 @@
-import ts = require("typescript");
-import parseArrayTypeNode from "./parse-array-type-node";
-import parseIntersectionType from "./parse-intersection-type";
-import parseLiteralType from "./parse-literal-type";
-import parseTupleTypeNode from "./parse-tuple-type-node";
-import parseUnionType from "./parse-union-type";
+import ts = require('typescript');
+import parseArrayTypeNode from './parse-array-type-node';
+import parseIntersectionType from './parse-intersection-type';
+import parseLiteralType from './parse-literal-type';
+import parseTupleTypeNode from './parse-tuple-type-node';
+import parseUnionType from './parse-union-type';
 
 export default (node: ts.TypeNode) => {
   if (ts.isArrayTypeNode(node)) {
@@ -25,4 +25,4 @@ export default (node: ts.TypeNode) => {
   if (ts.isIntersectionTypeNode(node)) {
     return parseIntersectionType(node);
   }
-}
+};
